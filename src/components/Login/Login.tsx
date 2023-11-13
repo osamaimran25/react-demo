@@ -1,5 +1,5 @@
   export const loginApi = async (email: string, password: string)  => {
-    const apiUrl = 'http://127.0.0.1:8000/auth/login/';
+    const apiUrl = 'https://diango01-stage.us.aldryn.io/auth/login/';
   
     try {
       const response = await fetch(apiUrl, {

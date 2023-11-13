@@ -24,9 +24,9 @@ const Login: React.FC = () => {
             if (response.status !== 200) {
                 setErrorMessage("login failed");
             } else {
-                setTimeout(() => {
+                
                     navigate('/search');
-                }, 1000);
+                
 
 
             }
