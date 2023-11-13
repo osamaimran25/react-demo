@@ -1,20 +1,17 @@
-# Use an official Node.js runtime as a parent image
-FROM node:14 as builder
+FROM node:16
 
 WORKDIR /app
 
 COPY package*.json ./
 
 RUN npm install
+RUN adduser --disabled-password myuser
+USER myuser
 
 COPY . .
 
 RUN npm run build
 
-FROM nginx:alpine
+EXPOSE 3000
 
-COPY --from=builder /app/build /usr/share/nginx/html
-
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["npm", "start"]
