@@ -13,7 +13,7 @@ const TopBar: React.FC = () => {
     useEffect(() => {
         const fetchUserDetails = async () => {
             try {
-                const response = await fetch('https://diango01-stage.us.aldryn.io/auth/user-details/', {
+                const response = await fetch('https://diango01.us.aldryn.io/auth/user-details/', {
                     headers: {
                         Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
                     },

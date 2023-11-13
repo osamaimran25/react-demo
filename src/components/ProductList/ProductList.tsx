@@ -36,7 +36,7 @@ const ProductList: React.FC<ProductListProps> = ({ products, token, onSort }) =>
                 try {
 
                     const response = await fetch(
-                        `https://diango01-stage.us.aldryn.io/products/selected_product?ids=${ids.join(',')}`,
+                        `https://diango01.us.aldryn.io/products/selected_product?ids=${ids.join(',')}`,
                         {
                             method: 'GET',
                             headers: {
