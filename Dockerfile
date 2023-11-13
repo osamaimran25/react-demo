@@ -1,4 +1,5 @@
-FROM node:14
+# Use an official Node.js runtime as a parent image
+FROM node:14 as builder
 
 WORKDIR /app
 
@@ -10,6 +11,10 @@ COPY . .
 
 RUN npm run build
 
-EXPOSE 3000
+FROM nginx:alpine
 
-CMD ["npm", "start"]
+COPY --from=builder /app/build /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
