@@ -2,11 +2,9 @@ FROM node:16
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package.json .
 
 RUN npm install
-RUN adduser --disabled-password myuser
-USER myuser
 
 COPY . .
 
